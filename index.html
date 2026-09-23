@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png">
+  <title>Typing Speed Test</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+  <main class="wrap">
+
+    <header class="header">
+      <div class="logo">
+        <img src="./img/logo-large.svg" alt="Typing Speed Test" class="logo-large">
+        <img src="./img/logo-small.svg" alt="Typing Speed Test" class="logo-small">
+      </div>
+
+      <div class="personal-best">
+        <img src="./img/icon-personal-best.svg" alt="">
+        Personal best: <span id="best">92 WPM</span>
+      </div>
+    </header>
+
+    <div class="top-bar" id="topBar">
+      <div class="live">
+        <div class="live-item">WPM: <b id="wpm">0</b></div>
+        <div class="live-item">Accuracy: <b id="acc" class="ok">100%</b></div>
+        <div class="live-item">Time: <b id="time" class="yellow">0:60</b></div>
+      </div>
+
+      <div class="mobile-selects">
+        <div class="select-wrap">
+          <button class="select-btn" id="diffBtn">
+            Hard <img src="./img/icon-down-arrow.svg" alt="">
+          </button>
+          <div class="select-menu" id="diffMenu">
+            <label><input type="radio" name="mDiff" value="easy"> Easy</label>
+            <label><input type="radio" name="mDiff" value="medium"> Medium</label>
+            <label><input type="radio" name="mDiff" value="hard" checked> Hard</label>
+          </div>
+        </div>
+
+        <div class="select-wrap">
+          <button class="select-btn" id="modeBtn">
+            Timed (60s) <img src="./img/icon-down-arrow.svg" alt="">
+          </button>
+          <div class="select-menu" id="modeMenu">
+            <label><input type="radio" name="mMode" value="timed" checked> Timed (60s)</label>
+            <label><input type="radio" name="mMode" value="passage"> Passage</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="desktop-pills">
+        <div class="pill-row">
+          <span>Difficulty:</span>
+          <button data-diff="easy">Easy</button>
+          <button data-diff="medium">Medium</button>
+          <button data-diff="hard" class="active">Hard</button>
+        </div>
+
+        <div class="pill-row">
+          <span>Mode:</span>
+          <button data-mode="timed" class="active">Timed (60s)</button>
+          <button data-mode="passage">Passage</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="typing-area" id="typingArea">
+      <div id="text-display"></div>
+      <label for="input" class="sr-only">Typing input</label>
+      <input id="input" type="text" autocomplete="off" spellcheck="false" aria-label="Typing input">
+
+      <div id="overlay" class="overlay">
+        <button id="startBtn" class="btn-blue">Start Typing Test</button>
+        <p>Or click the text and start typing</p>
+      </div>
+    </div>
+
+    <button id="restart" class="restart">
+      Restart Test <img src="./img/icon-restart.svg" alt="Restart icon">
+    </button>
+
+    <section id="results" class="results">
+      <img id="resIcon" src="./img/icon-completed.svg" class="res-icon" alt="">
+
+      <h1 id="resTitle">Test Complete!</h1>
+      <p id="resSub">Solid run. Keep pushing to beat your high score.</p>
+
+      <div class="res-grid">
+        <div class="res-box">
+          <label>WPM</label>
+          <b id="r-wpm">85</b>
+        </div>
+
+        <div class="res-box">
+          <label>Accuracy</label>
+          <b id="r-acc" class="red">90%</b>
+        </div>
+
+        <div class="res-box">
+          <label>Characters</label>
+          <b>
+            <span id="r-good" class="green">120</span>/<span id="r-bad" class="red">5</span>
+          </b>
+        </div>
+      </div>
+
+      <button id="again" class="btn-white">
+        Go Again <img src="./img/icon-restart.svg" alt="">
+      </button>
+    </section>
+
+  </main>
+
+  <script src="./js/main.js"></script>
+
+</body>
+</html>
